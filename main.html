@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Temperature Conversion</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Temperature App</h1>
+
+        <form id="form">
+            <div>
+                <div>
+                    <label>From</label>
+                    <select id="from" required>
+                        <option value="" hidden="" selected="">Choose</option>
+                        <option value="celcius">Celcius</option>
+                        <option value="fahrenheit">Fahrenheit</option>
+                        <option value="reamur">Reamur</option>
+                        <option value="kelvin">Kelvin</option>
+                    </select>
+                    <label>Value</label>
+                    <input id="from-value" type="text" required />
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <label>To</label>
+                    <select id="to" disabled="true" required>
+                        <option value="" hidden="" selected="">Choose..</option>
+                        <option id="celcius" value="celcius">Celcius</option>
+                        <option id="fahrenheit" value="fahrenheit">Fahrenheit</option>
+                        <option id="reamur" value="reamur">Reamur</option>
+                        <option id="kelvin" value="kelvin">Kelvin</option>
+                    </select>
+                    <label>Result</label>
+                    <input id="result" type="text" disabled />
+                </div>
+            </div>
+
+            <div>
+                <input type="submit" value="CONVERT">
+            </div>
+        </form>
+    </div>
+
+    <script src="app.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (event) {
+            fromSelector.onchange = function (e) {
+                refreshOption();
+                hideOption(fromSelector.value.toLowerCase());
+                console.log('Result:' + fromSelector.value.toLowerCase());
+            }
+
+            mainForm.onsubmit = function (e) {
+                e.preventDefault();
+                convert();
+            }
+        });	
+    </script>
+</body>
+
+</html>
